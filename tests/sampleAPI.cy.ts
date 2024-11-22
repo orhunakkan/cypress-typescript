@@ -1,4 +1,7 @@
+import payloads from '../payloads/samplePayload.json';
+
 describe('Reqres API Tests', () => {
+
     const baseURL = 'https://reqres.in/api';
 
     // Test to fetch a list of users from the API
@@ -32,40 +35,28 @@ describe('Reqres API Tests', () => {
 
     // Test to create a new user via the API
     it('should create a new user', () => {
-        const newUser = {
-            name: 'morpheus',
-            job: 'leader'
-        };
-        cy.request('POST', `${baseURL}/users`, newUser).then((response) => {
+        cy.request('POST', `${baseURL}/users`, payloads.newUser).then((response) => {
             expect(response.status).to.eq(201); // Verify the response status is 201
-            expect(response.body).to.have.property('name', newUser.name); // Verify the response body has the correct 'name'
-            expect(response.body).to.have.property('job', newUser.job); // Verify the response body has the correct 'job'
+            expect(response.body).to.have.property('name', payloads.newUser.name); // Verify the response body has the correct 'name'
+            expect(response.body).to.have.property('job', payloads.newUser.job); // Verify the response body has the correct 'job'
         });
     });
 
     // Test to update an existing user via the API
     it('should update a user', () => {
-        const updatedUser = {
-            name: 'morpheus',
-            job: 'zion resident'
-        };
-        cy.request('PUT', `${baseURL}/users/2`, updatedUser).then((response) => {
+        cy.request('PUT', `${baseURL}/users/2`, payloads.updatedUserPut).then((response) => {
             expect(response.status).to.eq(200); // Verify the response status is 200
-            expect(response.body).to.have.property('name', updatedUser.name); // Verify the response body has the correct 'name'
-            expect(response.body).to.have.property('job', updatedUser.job); // Verify the response body has the correct 'job'
+            expect(response.body).to.have.property('name', payloads.updatedUserPut.name); // Verify the response body has the correct 'name'
+            expect(response.body).to.have.property('job', payloads.updatedUserPut.job); // Verify the response body has the correct 'job'
         });
     });
 
     // Test to partially update an existing user via the API using PATCH
     it('should update a user with PATCH', () => {
-        const updatedUser = {
-            name: 'morpheus',
-            job: 'zion resident'
-        };
-        cy.request('PATCH', `${baseURL}/users/2`, updatedUser).then((response) => {
+        cy.request('PATCH', `${baseURL}/users/2`, payloads.updatedUserPatch).then((response) => {
             expect(response.status).to.eq(200); // Verify the response status is 200
-            expect(response.body).to.have.property('name', updatedUser.name); // Verify the response body has the correct 'name'
-            expect(response.body).to.have.property('job', updatedUser.job); // Verify the response body has the correct 'job'
+            expect(response.body).to.have.property('name', payloads.updatedUserPatch.name); // Verify the response body has the correct 'name'
+            expect(response.body).to.have.property('job', payloads.updatedUserPatch.job); // Verify the response body has the correct 'job'
         });
     });
 
@@ -78,11 +69,7 @@ describe('Reqres API Tests', () => {
 
     // Test to register a new user successfully via the API
     it('should register a user successfully', () => {
-        const newUser = {
-            email: 'eve.holt@reqres.in',
-            password: 'pistol'
-        };
-        cy.request('POST', `${baseURL}/register`, newUser).then((response) => {
+        cy.request('POST', `${baseURL}/register`, payloads.newUserRegister).then((response) => {
             expect(response.status).to.eq(200); // Verify the response status is 200
             expect(response.body).to.have.property('id'); // Verify the response body has an 'id' property
             expect(response.body).to.have.property('token'); // Verify the response body has a 'token' property
@@ -91,13 +78,10 @@ describe('Reqres API Tests', () => {
 
     // Test to verify the API returns a 400 status for a failed registration
     it('should fail to register a user', () => {
-        const newUser = {
-            email: 'sydney@fife'
-        };
         cy.request({
             method: 'POST',
             url: `${baseURL}/register`,
-            body: newUser,
+            body: payloads.failedUserRegister,
             failOnStatusCode: false
         }).then((response) => {
             expect(response.status).to.eq(400); // Verify the response status is 400
@@ -105,13 +89,9 @@ describe('Reqres API Tests', () => {
         });
     });
 
-    // Test to login a user successfully via the API
+    // Test to log in a user successfully via the API
     it('should login a user successfully', () => {
-        const user = {
-            email: 'eve.holt@reqres.in',
-            password: 'cityslicka'
-        };
-        cy.request('POST', `${baseURL}/login`, user).then((response) => {
+        cy.request('POST', `${baseURL}/login`, payloads.userLogin).then((response) => {
             expect(response.status).to.eq(200); // Verify the response status is 200
             expect(response.body).to.have.property('token'); // Verify the response body has a 'token' property
         });
@@ -119,13 +99,10 @@ describe('Reqres API Tests', () => {
 
     // Test to verify the API returns a 400 status for a failed login
     it('should fail to login a user', () => {
-        const user = {
-            email: 'peter@klaven'
-        };
         cy.request({
             method: 'POST',
             url: `${baseURL}/login`,
-            body: user,
+            body: payloads.failedUserLogin,
             failOnStatusCode: false
         }).then((response) => {
             expect(response.status).to.eq(400); // Verify the response status is 400

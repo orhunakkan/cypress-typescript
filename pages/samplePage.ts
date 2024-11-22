@@ -1,6 +1,5 @@
 export class SamplePage {
 
-    readonly url: string = 'https://formy-project.herokuapp.com/';
     readonly firstNameInput: string;
     readonly lastNameInput: string;
     readonly jobTitleInput: string;

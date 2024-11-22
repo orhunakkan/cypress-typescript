@@ -5,7 +5,7 @@ export default defineConfig({
         screenshotOnRunFailure: false,
         specPattern: 'tests/**/*.cy.ts',
         supportFile: 'utilities/e2e.ts',
-        setupNodeEvents(on, config) {
+        setupNodeEvents() {
         },
     },
 });

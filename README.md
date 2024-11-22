@@ -1,8 +1,6 @@
 # Project Overview
 
-This project is a comprehensive testing framework built using TypeScript, Selenium WebDriver, and Vitest. It includes
-API testing, database testing, and UI testing, providing a robust solution for end-to-end testing of web applications.
-There will be more tests added in the future. Please check out my other repositories for more testing frameworks.
+This project is a comprehensive testing framework built using TypeScript and Cypress. It includes UI testing, providing a robust solution for end-to-end testing of web applications. There will be more tests added in the future. Please check out my other repositories for more testing frameworks.
 
 ## Prerequisites
 
@@ -22,7 +20,7 @@ To set up the project, follow these steps:
 
 2. Navigate to the project directory:
     ```sh
-    cd selenium-typescript-framework
+    cd cypress-typescript
     ```
 
 3. Install the dependencies:
@@ -35,23 +33,29 @@ To set up the project, follow these steps:
 The project structure is organized as follows:
 
 - `pages/`: Page Object Model classes for UI tests.
-- `tests/`: Test files for API, database, and UI tests.
+- `tests/`: Test files for UI tests.
 - `utilities/`: Utility functions and helpers.
 - `payloads/`: JSON files containing test data.
 
 ## Running Tests
 
-There is an issue with vitest and selenium webdriver tests at the moment. When we run `npx vitest` or `vitest --ui`, it runs all tests in `tests` folder but sampleUI.spec.ts file fails, others pass.
-However, you can use IntelliJ IDEA to run the tests. There is a built-in Run feature for vitest. If you are using VS Code, make sure you installed the Vitest extension,
-and then you can run the tests from the test files.
+To run the tests, use the following command:
+```sh
+npx cypress open
+```
+This will open the Cypress Test Runner, where you can run the tests interactively.
+
+Alternatively, to run the tests in headless mode, use:
+```sh
+npx cypress run
+```
 
 ## Writing Tests
 
-Tests are written using Selenium WebVitest and are located in the `tests/` directory. Each test file follows a specific structure:
+Tests are written using Cypress and are located in the `tests/` directory. Each test file follows a specific structure:
 
-- `sampleAPI.spec.ts`: Contains API tests using Axios.
-- `sampleDB.spec.ts`: Contains database tests using SQLite.
-- `sampleUI.spec.ts`: Contains UI tests using Selenium WebDriver.
+- `sampleUI.cy.ts`: Contains UI tests using Cypress.
+- `sampleAPI.cy.ts`: Contains API tests using Cypress.
 
 ## Running Tests in CI/CD
 
@@ -67,12 +71,7 @@ The project includes comprehensive error handling and debugging mechanisms. Use 
 
 ## Reporting
 
-Test results are reported using the HTML reporter configured in Vitest. The reports provide detailed information about
-the test execution, including passed and failed tests. To see the reports, run:
-
-```
-npx vite preview --outDir html
-```
+Test results are reported using the built-in Cypress reporter. The reports provide detailed information about the test execution, including passed and failed tests. To see the reports, run the tests in headless mode and check the generated report files.
 
 ## Troubleshooting
 
