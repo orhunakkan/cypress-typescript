@@ -1,40 +1,84 @@
-# Cypress TypeScript Project (WIP)
+# Project Overview
 
-This project is a sample setup for end-to-end (E2E) testing using Cypress with TypeScript. It demonstrates how to configure Cypress with TypeScript and organize tests in a structured manner.
+This project is a comprehensive testing framework built using TypeScript, Selenium WebDriver, and Vitest. It includes
+API testing, database testing, and UI testing, providing a robust solution for end-to-end testing of web applications.
+There will be more tests added in the future. Please check out my other repositories for more testing frameworks.
 
-## Project Structure
+## Prerequisites
 
-- `cypress.config.ts`: Configuration file for Cypress.
-- `utilities/commands.ts`: Custom commands for Cypress (currently empty).
-- `utilities/e2e.ts`: Support file for Cypress, importing custom commands.
-- `samplePage.ts`: Placeholder for page object model (currently empty).
-- `samplePayload.json`: Placeholder for sample payload data (currently empty).
-- `sampleAPI.cy.ts`: Placeholder for API tests (currently empty).
-- `sampleUI.cy.ts`: Placeholder for UI tests (currently empty).
-- `package.json`: Project dependencies and metadata.
-- `tsconfig.json`: TypeScript configuration file.
+Before you begin, ensure you have met the following requirements:
 
-## Getting Started
+- Node.js (version 20 and up) and npm installed on your machine.
+- git (version control system) installed on your machine.
 
-### Prerequisites
+## Installation
 
-- Node.js and npm installed on your machine.
-
-### Installation
+To set up the project, follow these steps:
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/your-username/cypress-typescript.git
-    cd cypress-typescript
+    git clone <repository-url>
     ```
 
-2. Install the dependencies:
+2. Navigate to the project directory:
+    ```sh
+    cd selenium-typescript-framework
+    ```
+
+3. Install the dependencies:
     ```sh
     npm install
     ```
 
-### Running Tests
+## Folder Structure
 
-To run the Cypress tests, use the following command:
-```sh
-npx cypress open
+The project structure is organized as follows:
+
+- `pages/`: Page Object Model classes for UI tests.
+- `tests/`: Test files for API, database, and UI tests.
+- `utilities/`: Utility functions and helpers.
+- `payloads/`: JSON files containing test data.
+
+## Running Tests
+
+There is an issue with vitest and selenium webdriver tests at the moment. When we run `npx vitest` or `vitest --ui`, it runs all tests in `tests` folder but sampleUI.spec.ts file fails, others pass.
+However, you can use IntelliJ IDEA to run the tests. There is a built-in Run feature for vitest. If you are using VS Code, make sure you installed the Vitest extension,
+and then you can run the tests from the test files.
+
+## Writing Tests
+
+Tests are written using Selenium WebVitest and are located in the `tests/` directory. Each test file follows a specific structure:
+
+- `sampleAPI.spec.ts`: Contains API tests using Axios.
+- `sampleDB.spec.ts`: Contains database tests using SQLite.
+- `sampleUI.spec.ts`: Contains UI tests using Selenium WebDriver.
+
+## Running Tests in CI/CD
+
+This is currently work in progress. The project will be integrated with GitHub Actions.
+
+## Error Handling and Debugging
+
+The project includes comprehensive error handling and debugging mechanisms. Use the following techniques to debug tests:
+
+- Console logs
+- Breakpoints in the IDE
+- Debugging tools provided by the browser
+
+## Reporting
+
+Test results are reported using the HTML reporter configured in Vitest. The reports provide detailed information about
+the test execution, including passed and failed tests. To see the reports, run:
+
+```
+npx vite preview --outDir html
+```
+
+## Troubleshooting
+
+If you encounter any issues, refer to the following troubleshooting steps:
+
+- Ensure that all dependencies are installed correctly.
+- Verify that the browser drivers are up to date.
+- Check the configuration files for any misconfigurations.
+- Review the console logs for error messages.
