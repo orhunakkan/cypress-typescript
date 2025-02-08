@@ -1,6 +1,7 @@
 import payloads from "../payloads/samplePayload.json";
 
 describe("Reqres API Tests", () => {
+  
   const baseURL = "https://reqres.in/api";
 
   // Test to fetch a list of users from the API
