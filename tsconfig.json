@@ -4,15 +4,8 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "target": "es6",
-    "lib": [
-      "es6",
-      "dom"
-    ],
-    "types": [
-      "cypress"
-    ]
+    "lib": ["es6", "dom"],
+    "types": ["cypress"]
   },
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["**/*.ts"]
 }

@@ -5,9 +5,9 @@
   "scripts": {},
   "author": "Orhun Akkan",
   "license": "ISC",
-  "description": "",
+  "description": "Cypress-Typescript Framework",
   "dependencies": {
-    "cypress": "^14.0.0",
+    "cypress": "^14.0.2",
     "typescript": "^5.7.3"
   }
 }
