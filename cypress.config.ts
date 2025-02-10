@@ -5,6 +5,8 @@ export default defineConfig({
     screenshotOnRunFailure: false,
     specPattern: "tests/**/*.cy.ts",
     supportFile: false,
+    downloadsFolder: "",
+    fixturesFolder: false,
     setupNodeEvents() {},
   },
 });
