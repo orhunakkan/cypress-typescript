@@ -1,12 +1,12 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
     screenshotOnRunFailure: false,
-    specPattern: "tests/**/*.cy.ts",
+    specPattern: 'tests/**/*.cy.ts',
     supportFile: false,
-    downloadsFolder: "",
+    downloadsFolder: '',
     fixturesFolder: false,
-    setupNodeEvents() {},
-  },
+    setupNodeEvents() {}
+  }
 });
