@@ -6,16 +6,21 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:cucumber": "cypress run --spec \"**/*.feature\""
   },
   "author": "Orhun Akkan",
   "license": "ISC",
   "description": "Cypress-Typescript Framework",
   "dependencies": {
-    "cypress": "^14.1.0"
+    "cypress": "^13.6.3",
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.6",
+    "@cypress/webpack-preprocessor": "^6.0.0"
   },
   "devDependencies": {
     "prettier": "^3.5.0",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.2",
+    "webpack": "^5.88.0",
+    "ts-loader": "^9.5.1"
   }
 }
