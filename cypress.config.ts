@@ -2,11 +2,11 @@ import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
-    screenshotOnRunFailure: false,
+    screenshotOnRunFailure: true,
     specPattern: 'tests/**/*.cy.ts',
     supportFile: false,
-    downloadsFolder: '',
-    fixturesFolder: false,
+    downloadsFolder: 'cypress/downloads',
+    fixturesFolder: 'fixtures',
     setupNodeEvents() {}
   }
 });
