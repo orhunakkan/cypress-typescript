@@ -2,6 +2,6 @@
   "stepDefinitions": ["features/step_definitions/*.ts"],
   "json": {
     "enabled": true,
-    "output": "cypress/cucumber-json/cucumber-report.json"
+    "output": "reports/cucumber-json/cucumber-report.json"
   }
 }
