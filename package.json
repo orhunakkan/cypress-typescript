@@ -13,7 +13,7 @@
   "license": "ISC",
   "description": "Cypress-Typescript Framework",
   "dependencies": {
-    "cypress": "^13.6.3"
+    "cypress": "^14.1.0"
   },
   "devDependencies": {
     "prettier": "^3.5.0",
