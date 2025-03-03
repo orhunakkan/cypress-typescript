@@ -1,4 +1,3 @@
-// pages/apiEndpoints.ts
 export const ApiEndpoints = {
   baseUrl: 'https://reqres.in/api',
   users: '/users',

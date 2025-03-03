@@ -1,4 +1,3 @@
-// fixtures/uiTestData.ts
 export interface UserData {
   firstName: string;
   lastName: string;
@@ -27,14 +26,14 @@ export const RegistrationData = {
     jobTitle: 'Developer',
     programmingLanguages: [1, 2, 3] // C++, Java, JavaScript
   },
-  
+
   invalidUser: {
-    firstName: 'J',  // too short
-    lastName: 'D',   // too short
-    username: 'a',   // too short
+    firstName: 'J', // too short
+    lastName: 'D', // too short
+    username: 'a', // too short
     email: 'invalid-email',
     password: 'pass', // too short
-    phone: '123',    // invalid format
+    phone: '123', // invalid format
     birthday: '13/13/2030', // invalid date
     gender: 'male',
     department: 'DE',

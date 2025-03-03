@@ -1,4 +1,3 @@
-// pages/registrationFormPage.ts
 export const RegistrationFormPage = {
   firstNameInput: 'input[name="firstname"]',
   lastNameInput: 'input[name="lastname"]',
