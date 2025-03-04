@@ -5,6 +5,13 @@ export default defineConfig({
     specPattern: ['tests/**/*.cy.ts'],
     supportFile: false,
     downloadsFolder: 'downloads',
-    fixturesFolder: 'fixtures'
+    fixturesFolder: 'fixtures',
+    video: true,
+    screenshotOnRunFailure: true,
+    reporter: 'junit',
+    reporterOptions: {
+      mochaFile: 'reports/junit-[hash].xml',
+      toConsole: true
+    }
   }
 });
