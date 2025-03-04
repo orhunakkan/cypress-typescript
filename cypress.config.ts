@@ -6,7 +6,7 @@ export default defineConfig({
     supportFile: false,
     downloadsFolder: 'downloads',
     fixturesFolder: 'fixtures',
-    video: true,
+    video: false,
     screenshotOnRunFailure: true,
     reporter: 'junit',
     reporterOptions: {
