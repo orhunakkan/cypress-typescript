@@ -1,3 +1,5 @@
+import { UserFactory } from '../../fixtures/user-factory';
+
 describe('Reqres API Tests', () => {
   describe('Users Endpoints', () => {
     it('should list users with pagination', () => {
@@ -26,10 +28,7 @@ describe('Reqres API Tests', () => {
     });
 
     it('should create a new user', () => {
-      const userData = {
-        name: 'morpheus',
-        job: 'leader'
-      };
+      const userData = UserFactory.createUser();
 
       cy.request('POST', 'https://reqres.in/api/users', userData).then(response => {
         expect(response.status).to.eq(201);
@@ -39,10 +38,7 @@ describe('Reqres API Tests', () => {
     });
 
     it('should update a user with PUT', () => {
-      const userData = {
-        name: 'morpheus',
-        job: 'zion resident'
-      };
+      const userData = UserFactory.createUser();
 
       cy.request('PUT', 'https://reqres.in/api/users/2', userData).then(response => {
         expect(response.status).to.eq(200);
@@ -51,10 +47,7 @@ describe('Reqres API Tests', () => {
     });
 
     it('should update a user with PATCH', () => {
-      const userData = {
-        name: 'morpheus',
-        job: 'zion resident'
-      };
+      const userData = UserFactory.createUser();
 
       cy.request('PATCH', 'https://reqres.in/api/users/2', userData).then(response => {
         expect(response.status).to.eq(200);
@@ -106,10 +99,7 @@ describe('Reqres API Tests', () => {
 
   describe('Authentication Endpoints', () => {
     it('should register successfully', () => {
-      const userData = {
-        email: 'eve.holt@reqres.in',
-        password: 'pistol'
-      };
+      const userData = UserFactory.registerSuccessful();
 
       cy.request('POST', 'https://reqres.in/api/register', userData).then(response => {
         expect(response.status).to.eq(200);
@@ -119,9 +109,7 @@ describe('Reqres API Tests', () => {
     });
 
     it('should fail registration with incomplete data', () => {
-      const userData = {
-        email: 'sydney@fife'
-      };
+      const userData = UserFactory.registerUnsuccessful();
 
       cy.request({
         method: 'POST',
@@ -135,10 +123,7 @@ describe('Reqres API Tests', () => {
     });
 
     it('should login successfully', () => {
-      const userData = {
-        email: 'eve.holt@reqres.in',
-        password: 'cityslicka'
-      };
+      const userData = UserFactory.loginSuccessful();
 
       cy.request('POST', 'https://reqres.in/api/login', userData).then(response => {
         expect(response.status).to.eq(200);
@@ -147,9 +132,7 @@ describe('Reqres API Tests', () => {
     });
 
     it('should fail login with incomplete data', () => {
-      const userData = {
-        email: 'peter@klaven'
-      };
+      const userData = UserFactory.loginUnsuccessful();
 
       cy.request({
         method: 'POST',
