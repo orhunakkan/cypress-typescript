@@ -56,7 +56,7 @@ export class RegistrationPage {
     return this;
   }
 
-  selectGender(gender: 'male' | 'female' | 'other') {
+  selectGender(gender: string) {
     switch (gender) {
       case 'male':
         cy.get(this.genderRadioMale).click();
@@ -86,7 +86,7 @@ export class RegistrationPage {
     return this;
   }
 
-  selectProgrammingLanguages(languages: ('java' | 'javascript')[]) {
+  selectProgrammingLanguages(languages: string[]) {
     languages.forEach(lang => {
       if (lang === 'java') {
         cy.get(this.programmingLanguageJava).check();

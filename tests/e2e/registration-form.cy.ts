@@ -1,4 +1,5 @@
 import registrationFormPage from '../../pages/registration-page';
+import userData from '../../fixtures/user-data.json';
 
 describe('Registration Form Tests', () => {
   beforeEach(() => {
@@ -7,30 +8,34 @@ describe('Registration Form Tests', () => {
   });
 
   it('should successfully submit the registration form with valid data', () => {
+    const { validUser } = userData;
+
     registrationFormPage
-      .fillFirstName('John')
-      .fillLastName('Doe')
-      .fillUsername('johndoe123')
-      .fillEmail('john.doe@example.com')
-      .fillPassword('Password123')
-      .fillPhone('571-123-4567')
-      .selectGender('male')
-      .fillBirthday('01/15/1990')
-      .selectDepartment('DE')
-      .selectJobTitle('SDET')
-      .selectProgrammingLanguages(['java', 'javascript'])
+      .fillFirstName(validUser.firstName)
+      .fillLastName(validUser.lastName)
+      .fillUsername(validUser.username)
+      .fillEmail(validUser.email)
+      .fillPassword(validUser.password)
+      .fillPhone(validUser.phone)
+      .selectGender(validUser.gender)
+      .fillBirthday(validUser.birthday)
+      .selectDepartment(validUser.department)
+      .selectJobTitle(validUser.jobTitle)
+      .selectProgrammingLanguages(validUser.programmingLanguages)
       .submit()
       .verifySuccessfulRegistration();
   });
 
   it('should display validation errors for invalid form submission', () => {
+    const { invalidUser } = userData;
+
     registrationFormPage
-      .fillFirstName('Jane')
-      .fillLastName('Smith')
-      .fillUsername('jane') // Too short username
-      .fillEmail('invalid-email') // Invalid email
-      .fillPassword('pass') // Too short password
-      .fillPhone('123-456'); // Invalid phone format
+      .fillFirstName(invalidUser.firstName)
+      .fillLastName(invalidUser.lastName)
+      .fillUsername(invalidUser.username)
+      .fillEmail(invalidUser.email)
+      .fillPassword(invalidUser.password)
+      .fillPhone(invalidUser.phone);
 
     // Verify validation errors are displayed
     registrationFormPage
