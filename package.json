@@ -6,7 +6,12 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "cy:run:e2e:chrome": "cypress run --browser chrome --spec \"tests/e2e/**/*.cy.ts\"",
+    "cy:run:e2e:edge": "cypress run --browser edge --spec \"tests/e2e/**/*.cy.ts\"",
+    "cy:run:e2e:firefox": "cypress run --browser firefox --spec \"tests/e2e/**/*.cy.ts\"",
+    "cy:run:api": "cypress run --spec \"tests/api/**/*.cy.ts\"",
+    "test": "npm run cy:run:api && npm run cy:run:e2e:chrome && npm run cy:run:e2e:edge && npm run cy:run:e2e:firefox"
   },
   "author": "Orhun Akkan",
   "license": "ISC",
